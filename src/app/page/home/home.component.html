@@ -1,0 +1,49 @@
+<!-- <div class="container">
+    <ul *ngFor="let item of products">
+        <li><img src="assets/image/{{item.image}}"></li>
+        <li>Name: {{item.name}}</li>
+        <li>Price: {{item.price}}</li>
+    </ul>
+</div> -->
+<div class="containner-product-list">
+    <div class="containner-main">
+        <div class="row list-product">
+            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of products">
+                <div class="mx-auto containner-content">
+                    <div>
+                        <div style="text-align: center;">
+                            <button type="button" style="background-color: transparent; border: none;" [ngbPopover]="item.name" triggers="mouseenter:mouseleave" popoverTitle="Product Name:" placement="bottom" (click)="goToDetail(item.id)">
+
+                                <img src="assets/image/{{item.image}}" style="width: 100%; height: 250px;border-radius: 5%;">
+                            </button>
+                        </div>
+                        <div style="padding: 15px 25px 0 25px;">
+                            <div class="long-title">
+                                <a href="product/{{item.id}}">
+                                    <b>{{ item.name }}</b>
+                                </a>
+                            </div>
+
+                            <div>
+                                <div><b>Giá: </b>{{ item.price }}</div>
+                            </div>
+
+                            <div>
+                                <div><b>Số lượng: </b>{{ item.quantity }}</div>
+                            </div>
+                        </div>
+                        <div class="d-flex btn-btns">
+                            <div class="p-2">
+                                <button class="btn btn-product-page btn-buy"><span>Mua ngay </span></button>
+                            </div>
+                            <div class="ml-auto p-2">
+                                <button class="btn btn-product-page btn-add-cart" (click)="addToCart(item)"><span>Thêm vào giỏ</span></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
